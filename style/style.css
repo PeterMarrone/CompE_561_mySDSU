@@ -5,3 +5,19 @@
 .nav-link {
     color:white !important;
 }
+
+.center-table {
+    width: 70%;
+    float: right;
+    padding-top: 25px;
+    padding-right: 50px;
+    padding-bottom: 25px;
+}
+
+.left-form {
+    width: 25%;
+    float: left;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-bottom: 25px;
+}
