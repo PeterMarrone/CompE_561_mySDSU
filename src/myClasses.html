@@ -63,24 +63,38 @@
       <tbody>
         <tr>
           <th scope="row">000000</th>
-          <td>CompE 561</td>
+          <td>CompE561</td>
           <td>3.0</td>
           <td>MW / 5:30PM - 6:45PM</td>
-          <td>LH 347</td>
+          <td>LH347</td>
         </tr>
         <tr>
           <th scope="row">000001</th>
-          <td>CompE 571</td>
+          <td>CompE571</td>
           <td>3.0</td>
           <td>MW / 4:00PM - 5:15PM</td>
-          <td>GMCS 301</td>
+          <td>GMCS301</td>
+        </tr>
+        <tr>
+          <th scope="row">000003</th>
+          <td>CS503</td>
+          <td>3.0</td>
+          <td>MW / 7:00PM - 8:15PM</td>
+          <td>P144</td>
+        </tr>
+        <tr>
+          <th scope="row">000004</th>
+          <td>CS460</td>
+          <td>3.0</td>
+          <td>TTH / 3:30PM - 4:45PM</td>
+          <td>GMCS314</td>
         </tr>
       </tbody>
     </table>
     </div>
 
     <div class = "left-form">
-      <form>
+      <form action="action.jsp" method="get">
         <div class="form-group">
           <label for="Course-Code">Course Number:</label>
           <input type="text" class="form-control" id="Course-Code" placeholder="Enter Course Number">
@@ -99,7 +113,7 @@
         </div>
         <div>
           <label for="Course-Location" style = "margin-top: 15px;">Semester:</label>
-          <select class="form-select">
+          <select class="form-select" id="Course-Location">
             <option value="1">Fall 2022</option>
             <option value="2">Spring 2022</option>
             <option value="3">Fall 2021</option>
