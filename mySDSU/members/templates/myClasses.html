@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my.SDSU</title>
+
+{% load static %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="{% static 'img/sdsu_primary_logo_rgb_horizontal_1_color_white.png' %}" height="30" width="180">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/myClasses">My Classes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/myGrades">My Grades</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Student Resources
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/applyToGrad">Apply to Graduate</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="/externalResources">External Resources</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <button style="color: white; background-color: #D20101; border-color: white;" class="btn btn-outline-success" type="submit">Logout</button>
+            </form>
+          </div>
+        </div>
+    </nav>
+
+    <img src="{% static 'img/footer-sock-new-walkway.jpg' %}" class="banner" alt="Responsive image" height = "500px">
+
+    <div class = "center-table"> 
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Course Number</th>
+          <th scope="col">Course Name</th>
+          <th scope="col">Units</th>
+          <th scope="col">Day / Time</th>
+          <th scope="col">Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">000000</th>
+          <td>CompE561</td>
+          <td>3.0</td>
+          <td>MW / 5:30PM - 6:45PM</td>
+          <td>LH347</td>
+        </tr>
+        <tr>
+          <th scope="row">000001</th>
+          <td>CompE571</td>
+          <td>3.0</td>
+          <td>MW / 4:00PM - 5:15PM</td>
+          <td>GMCS301</td>
+        </tr>
+        <tr>
+          <th scope="row">000003</th>
+          <td>CS503</td>
+          <td>3.0</td>
+          <td>MW / 7:00PM - 8:15PM</td>
+          <td>P144</td>
+        </tr>
+        <tr>
+          <th scope="row">000004</th>
+          <td>CS460</td>
+          <td>3.0</td>
+          <td>TTH / 3:30PM - 4:45PM</td>
+          <td>GMCS314</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class = "left-form">
+      <form action="action.jsp" method="get">
+        <div class="form-group">
+          <label for="Course-Code">Course Number:</label>
+          <input type="text" class="form-control" id="Course-Code" placeholder="Enter Course Number">
+        </div>
+        <div class="form-group">
+          <label for="Course-Name" style = "margin-top: 15px;">Course Name:</label>
+          <input type="text" class="form-control" id="Course-Name" placeholder="Enter Course Name">
+        </div>
+        <div class="form-group">
+          <label for="Course-Day/Time" style = "margin-top: 15px;">Course Day / Time:</label>
+          <input type="text" class="form-control" id="Course-Day/Time" placeholder="Enter Course Day / Time">
+        </div>
+        <div class="form-group">
+          <label for="Course-Location" style = "margin-top: 15px;">Course Location:</label>
+          <input type="text" class="form-control" id="Course-Location" placeholder="Enter Course Location">
+        </div>
+        <div>
+          <label for="Course-Location" style = "margin-top: 15px;">Semester:</label>
+          <select class="form-select" id="Course-Location">
+            <option value="1">Fall 2022</option>
+            <option value="2">Spring 2022</option>
+            <option value="3">Fall 2021</option>
+            <option value="4">Spring 2021</option>
+            <option value="5">Fall 2020</option>
+            <option value="6">Spring 2020</option>
+            <option value="7">Fall 2019</option>
+            <option value="8">Spring 2019</option>
+            <option value="9">Fall 2018</option>
+          </select>
+        </div>
+          <button type="submit" class="btn btn-primary" style = "margin-top: 15px; color: white; background-color: #D20101; border-color: white;">Search</button>
+      </form>
+    </div>
+
+          <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>
