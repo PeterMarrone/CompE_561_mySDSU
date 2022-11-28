@@ -22,7 +22,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link active" aria-current="page" href="/homepage">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/myClasses">My Classes</a>
@@ -39,9 +39,9 @@
             </ul>
           </li>
         </ul>
-        <form class="d-flex">
+        <a href = "{% url 'Logout' %}">
           <button style="color: white; background-color: #D20101; border-color: white;" class="btn btn-outline-success" type="submit">Logout</button>
-        </form>
+        </a>
       </div>
     </div>
   </nav>

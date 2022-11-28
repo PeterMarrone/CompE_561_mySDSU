@@ -22,7 +22,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <a class="nav-link active" aria-current="page" href="/homepage">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/myClasses">My Classes</a>
@@ -41,61 +41,37 @@
                 </ul>
               </li>
             </ul>
-            <form class="d-flex">
+            <a href = "{% url 'Logout' %}">
               <button style="color: white; background-color: #D20101; border-color: white;" class="btn btn-outline-success" type="submit">Logout</button>
-            </form>
+            </a>
           </div>
         </div>
     </nav>
 
     <img src="{% static 'img/footer-sock-new-walkway.jpg' %}" class="banner" alt="Responsive image" height = "500px">
 
-    <div class = "center-table"> 
-    <table class="table table-striped">
-      <thead>
+    <div class = "center-table">
+      <table class = "table table-striped">
         <tr>
-          <th scope="col">Course Number</th>
-          <th scope="col">Course Name</th>
-          <th scope="col">Units</th>
-          <th scope="col">Day / Time</th>
-          <th scope="col">Location</th>
+          <th>Course Number</th>
+          <th>Course Name</th>
+          <th>Units</th>
+          <th>Date / Time</th>
+          <th>Location</th>
         </tr>
-      </thead>
-      <tbody>
+        {% for class in class_list %} 
         <tr>
-          <th scope="row">000000</th>
-          <td>CompE561</td>
-          <td>3.0</td>
-          <td>MW / 5:30PM - 6:45PM</td>
-          <td>LH347</td>
+          <td>{{class.courseNumber}}</td>
+          <td>{{class.courseName}}</td>
+          <td>{{class.units}}</td>
+          <td>{{class.dayAndTime}}</td>
+          <td>{{class.location}}</td>
         </tr>
-        <tr>
-          <th scope="row">000001</th>
-          <td>CompE571</td>
-          <td>3.0</td>
-          <td>MW / 4:00PM - 5:15PM</td>
-          <td>GMCS301</td>
-        </tr>
-        <tr>
-          <th scope="row">000003</th>
-          <td>CS503</td>
-          <td>3.0</td>
-          <td>MW / 7:00PM - 8:15PM</td>
-          <td>P144</td>
-        </tr>
-        <tr>
-          <th scope="row">000004</th>
-          <td>CS460</td>
-          <td>3.0</td>
-          <td>TTH / 3:30PM - 4:45PM</td>
-          <td>GMCS314</td>
-        </tr>
-      </tbody>
-    </table>
+        {% endfor %}
+      </table>
     </div>
 
     <div class = "left-form">
-      <form action="action.jsp" method="get">
         <div class="form-group">
           <label for="Course-Code">Course Number:</label>
           <input type="text" class="form-control" id="Course-Code" placeholder="Enter Course Number">
@@ -127,7 +103,6 @@
           </select>
         </div>
           <button type="submit" class="btn btn-primary" style = "margin-top: 15px; color: white; background-color: #D20101; border-color: white;">Search</button>
-      </form>
     </div>
 
           <!-- JavaScript Bundle with Popper -->

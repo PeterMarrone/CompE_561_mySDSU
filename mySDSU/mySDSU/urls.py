@@ -19,9 +19,12 @@ from members import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),
+    path('members/', include('django.contrib.auth.urls')),
+    path('', views.login_user, name = 'Login'),
+    path('logout_user', views.logout_user, name = "Logout"),
+    path('homepage', views.homePage, name = "homePage"),
     path('myClasses', views.myClasses),
     path('myGrades', views.myGrades),
     path('applyToGrad', views.applyToGrad),
-    path('externalResources', views.externalResources)
+    path('externalResources', views.externalResources),
 ]

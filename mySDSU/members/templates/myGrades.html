@@ -22,7 +22,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <a class="nav-link active" aria-current="page" href="/homepage">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/myClasses">My Classes</a>
@@ -41,55 +41,41 @@
                 </ul>
               </li>
             </ul>
-            <form class="d-flex">
+            <a href = "{% url 'Logout' %}">
               <button style="color: white; background-color: #D20101; border-color: white;" class="btn btn-outline-success" type="submit">Logout</button>
-            </form>
+            </a>
           </div>
         </div>
     </nav>
 
     <img src="{% static 'img/union2.jpg' %}" class="banner" alt="Responsive image" height = "500px">
 
-    <div class = "center-table"> 
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Course Number</th>
-            <th scope="col">Course Name</th>
-            <th scope="col">Units</th>
-            <th scope="col">Grade Recieved</th>
-            <th scope="col">GPA</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">000000</th>
-            <td>CompE 561</td>
-            <td>3.0</td>
-            <td>A</td>
-            <td>4.0</td>
-          </tr>
-          <tr>
-            <th scope="row">000001</th>
-            <td>CompE 571</td>
-            <td>3.0</td>
-            <td>A</td>
-            <td>4.0</td>
-          </tr>
-          <tr>
-            <th scope="row">Cumlative GPA:</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>4.0</td>
-          </tr>
-        </tbody>
+    <div class = "center-table">
+      <table class = "table table-striped">
+        <tr>
+          <th>Course Number</th>
+          <th>Course Name</th>
+          <th>Units</th>
+          <th>Semester Taken</th>
+          <th>Grade Recieved</th>
+          <th>GPA</th>
+        </tr>
+        {% for grade in grade_list %} 
+        <tr>
+          <td>{{grade.courseNumber}}</td>
+          <td>{{grade.courseName}}</td>
+          <td>{{grade.units}}</td>
+          <td>{{grade.semester}}</td>
+          <td>{{grade.grade}}</td>
+          <td>{{grade.gpa}}</td>
+        </tr>
+        {% endfor %}
       </table>
-      </div>
+    </div>
   
       <div class = "left-form">
         <form>
-          <label for="Course-Location" style = "padding-left: 5px;">Semester:</label>
+          <label for="Course-Semester" style = "padding-left: 5px;">Semester:</label>
           <select class="form-select">
             <option value="1">Fall 2022</option>
             <option value="2">Spring 2022</option>
