@@ -14,8 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
 from members import views
+from django.conf import settings
+from django.views.static import serve
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,8 +26,11 @@ urlpatterns = [
     path('', views.login_user, name = 'Login'),
     path('logout_user', views.logout_user, name = "Logout"),
     path('homepage', views.homePage, name = "homePage"),
-    path('myClasses', views.myClasses),
-    path('myGrades', views.myGrades),
-    path('applyToGrad', views.applyToGrad),
-    path('externalResources', views.externalResources),
+    path('myClasses', views.myClasses, name = "myClasses"),
+    path('myGrades', views.myGrades, name = 'myGrades'),
+    path('applyToGrad', views.applyToGrad, name = 'applyToGrad'),
+    path('externalResources', views.externalResources, name = 'externalResources'),
+
+    re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ]
+handler404 = "members.views.page_not_found_view"

@@ -1,14 +1,6 @@
 from django.db import models
-
-class Students(models.Model):
-    redID = models.CharField('Student RedID', max_length = 100)
-    email = models.EmailField('Student Email')
-    Name = models.CharField('Student Name', max_length = 100)
-    Major = models.CharField('Student Major', max_length = 100)
-    
-    def __str__(self):
-        return(self.redID)
-
+from django.contrib.auth.models import User
+from django.conf import settings
 
 class Classes(models.Model):
     courseNumber = models.CharField('Course Number', max_length = 100)
@@ -17,7 +9,7 @@ class Classes(models.Model):
     dayAndTime = models.CharField('Day / Time', max_length = 100)
     location = models.CharField('Location', max_length = 100)
     semester = models.CharField('Semester', max_length = 100)
-    students_in_class = models.ManyToManyField(Students, blank=True)
+    students = models.ManyToManyField(User)
 
     def __str__(self):
         return(self.courseNumber)
@@ -29,7 +21,24 @@ class Grades(models.Model):
     grade = models.CharField('Grade Recieved', max_length = 100)
     gpa = models.CharField('GPA', max_length = 100)
     semester = models.CharField('Semester', max_length = 100)
-    students_took_class = models.ManyToManyField(Students, blank=True)
+    students = models.ManyToManyField(User)
 
     def __str__(self):
         return(self.courseNumber)
+
+class appointment(models.Model):
+    redID = models.CharField('RedID', max_length = 9)
+    advisor = models.CharField('Advisor', max_length = 100)
+
+    def __str__(self):
+        return(self.redId)
+
+class applyToGrad(models.Model):
+    firstName = models.CharField('First Name', max_length = 30)
+    lastName = models.CharField('Last Name', max_length = 50)
+    redID = models.CharField('RedID', max_length = 9)
+    catalogYear = models.CharField('Catalog Year', max_length = 4)
+    major = models.CharField('Major', max_length = 100)
+
+    def __str__(self):
+        return(self.redId)
