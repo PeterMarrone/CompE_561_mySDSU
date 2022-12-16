@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q
 from django.views.generic import TemplateView
@@ -14,6 +15,7 @@ from .models import Grades
 def page_not_found_view(request, exception):
     return render(request, '404.html', status=404)
 
+@login_required
 def homePage(request):
     submitted = False
     if request.method == "POST":
@@ -28,14 +30,17 @@ def homePage(request):
 
     return render(request, 'homepage.html', {'form':form, 'submitted':submitted})
 
+@login_required
 def myClasses(request):
     class_list = Classes.objects.filter(students = request.user)
     return render(request, 'myClasses.html', {'class_list': class_list})
 
+@login_required
 def myGrades(request):
     grade_list = Grades.objects.filter(students = request.user)
     return render(request, 'myGrades.html', {'grade_list': grade_list})
 
+@login_required
 def applyToGrad(request):
     submitted = False
     if request.method == "POST":
@@ -50,6 +55,7 @@ def applyToGrad(request):
 
     return render(request, 'applyToGrad.html', {'form':form, 'submitted':submitted})
 
+@login_required
 def externalResources(request):
     return render(request, 'externalResources.html')
 

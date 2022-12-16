@@ -39,13 +39,13 @@
             </ul>
           </li>
         </ul>
+        <a style = "color: white; padding-right: 10px;">Logged in as {{ user.username }}</a>
         <a href = "{% url 'Logout' %}">
           <button style="color: white; background-color: #D20101; border-color: white;" class="btn btn-outline-success" type="submit">Logout</button>
         </a>
       </div>
     </div>
   </nav>
-
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
